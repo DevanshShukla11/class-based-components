@@ -1,25 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import { render } from '@testing-library/react';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  constructor(props)
+  {
+    super(props)
+    this.state={
+      name:"devansh"
+    }
+    console.log("initialization...");
+  }
+  componentDidMount(){
+    console.log("fetch some data")
+  }
+  componentDidUpdate(prevstate , prevProps ){
+  console.log("updated state" , prevProps, prevstate)
+  }
+  render(){
+   console.log("rendered successfully")
+    return (
+      <div>
+      <h1>Class component using react js </h1>
+      <button onClick={()=>this.setState({name:"virat"})}>Click me</button>
+      </div>
+        );
+  }
 }
+
 
 export default App;
